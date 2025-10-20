@@ -82,7 +82,7 @@ public class IndexModel(RepDbContext dc, UserManager<ApplicationUser> userManage
 
         // Serialize to ICAL
         var calSer = new CalendarSerializer(cal);
-        var ics = calSer.SerializeToString();
+        var ics = calSer.SerializeToString() ?? string.Empty;
         return this.Content(ics, "text/calendar");
     }
 

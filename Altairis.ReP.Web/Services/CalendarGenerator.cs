@@ -58,9 +58,8 @@ public class CalendarGenerator(RepDbContext dc, TimeProvider timeProvider, LinkG
             cal.Events.Add(new() {
                 Summary = item.Title,
                 Description = item.Comment,
-                DtStart = new CalDateTime(item.Date),
-                DtEnd = new CalDateTime(item.Date),
-                IsAllDay = true,
+                DtStart = new CalDateTime(item.Date, hasTime: false),
+                DtEnd = new CalDateTime(item.Date, hasTime: false),
                 Uid = linkGenerator.GetUriByPage(contextAccessor.HttpContext ?? throw new ImpossibleException(),
                     page: "/My/Calendar",
                     fragment: new FragmentString("#event_" + item.Id))
@@ -130,9 +129,8 @@ public class CalendarGenerator(RepDbContext dc, TimeProvider timeProvider, LinkG
             cal.Events.Add(new() {
                 Summary = item.Title,
                 Description = item.Comment,
-                DtStart = new CalDateTime(item.Date),
-                DtEnd = new CalDateTime(item.Date),
-                IsAllDay = true,
+                DtStart = new CalDateTime(item.Date, hasTime: false),
+                DtEnd = new CalDateTime(item.Date, hasTime: false),
                 Uid = linkGenerator.GetUriByPage(contextAccessor.HttpContext ?? throw new ImpossibleException(),
                     page: "/My/Calendar",
                     fragment: new FragmentString("#event_" + item.Id))
@@ -199,9 +197,8 @@ public class CalendarGenerator(RepDbContext dc, TimeProvider timeProvider, LinkG
             cal.Events.Add(new() {
                 Summary = item.Title,
                 Description = item.Comment,
-                DtStart = new CalDateTime(item.Date),
-                DtEnd = new CalDateTime(item.Date),
-                IsAllDay = true,
+                DtStart = new CalDateTime(item.Date, hasTime: false),
+                DtEnd = new CalDateTime(item.Date, hasTime: false),
                 Uid = linkGenerator.GetUriByPage(contextAccessor.HttpContext ?? throw new ImpossibleException(),
                     page: "/My/Reservations",
                     values: new { resourceId },
